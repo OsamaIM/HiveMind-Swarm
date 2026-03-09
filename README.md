@@ -1,56 +1,69 @@
-🧠 HiveMind: LLM-Driven Swarm Intelligence Simulation
-Role: AI Engineer / Researcher
-Tech Stack: Python, PyGame, Vector Mathematics, Local LLMs (Phi-3), Ollama, Multi-Threading.
+<div align="center">
 
-📌 Overview
-HiveMind is a real-time multi-agent physics simulation that bridges classical algorithmic movement with modern generative AI. It simulates a swarm of 100 autonomous agents navigating a 2D environment. While the agents default to classical "Boids" separation algorithms to avoid threats, the system features a localized Large Language Model (LLM) acting as a centralized Overmind.
+<img src="https://via.placeholder.com/800x250/0a0a0a/ec4899?text=HiveMind+Swarm+AI" alt="HiveMind" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
 
-Instead of hard-coding every possible reaction, the system queries a local Phi-3 neural network in real-time to analyze the battlefield and dictate emergent survival strategies (Scatter, Defend, or Freeze).
+<h3 align="center">A Real-Time Exploration of Swarm Intelligence</h3>
 
-🏗️ System Architecture & Engineering Challenges
-Building an LLM-driven physics simulation on consumer hardware presents severe latency and compute constraints. Here is how the system was engineered to run seamlessly at 60 FPS:
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-ACTIVE_DEVELOPMENT-22d3ee?style=for-the-badge&labelColor=111111" alt="Status" />
+  <img src="https://img.shields.io/badge/FOCUS-SWARM_INTELLIGENCE-ec4899?style=for-the-badge&labelColor=111111" alt="Focus" />
+  <img src="https://img.shields.io/badge/AI-MULTI__AGENT_SYSTEMS-6366f1?style=for-the-badge&labelColor=111111" alt="AI" />
+</p>
 
-1. The Physics Engine (PyGame & Vector Math)
-Agent Kinematics: Each drone is programmed using 2D Vector mathematics (pygame.math.Vector2). Position, velocity, and acceleration are calculated iteratively every frame.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python_3.10+-111111?style=flat-square&logo=python&logoColor=3776AB" alt="Python" />
+  <img src="https://img.shields.io/badge/PyTorch_Core-111111?style=flat-square&logo=pytorch&logoColor=EE4C2C" alt="PyTorch" />
+  <img src="https://img.shields.io/badge/PyGame_Engine-111111?style=flat-square&logo=python&logoColor=F6D743" alt="PyGame" />
+  <img src="https://img.shields.io/badge/License_MIT-111111?style=flat-square&logo=opensourceinitiative&logoColor=white" alt="License" />
+</p>
 
-Spatial Awareness: Agents calculate their Euclidean distance to the "Predator" (user cursor) in real-time, dynamically scaling their escape vectors based on proximity.
+</div>
+<br/>
 
-2. The Local AI Integration (Ollama API)
-Privacy-First Inference: To eliminate API costs and network latency, the simulation runs a 4-bit quantized version of Microsoft's Phi-3 directly on the local GPU via Ollama.
+> [!NOTE]  
+> This project is under active development. The **core physics engine is complete and tested**. Local LLM integration for agent decision-making is currently in progress. 
+> 
+> **Expected Completion:** Next Month
 
-Prompt Engineering: The simulation state is translated into a highly constrained prompt, forcing the LLM to output precise deterministic commands rather than conversational text.
+<br/>
 
-3. Asynchronous Threading (The 60 FPS Solution)
-The Problem: Querying an LLM takes ~2-5 seconds. If this ran on the main game loop, the entire physics engine would freeze, ruining the simulation.
+## ✨ What is HiveMind?
 
-The Solution: I implemented Python Threading. When the Swarm triggers the "Ask Hive Mind" event, the REST API call to the LLM is spun off into a background thread. The physics engine continues running at a smooth 60 FPS using the last known strategy until the AI thread returns a new command.
+**HiveMind** is an interactive testbed for exploring decentralized AI. Instead of relying on one massive, centralized 'brain', it utilizes a swarm of lightweight, independent AI agents that communicate and collaborate in real-time to solve spatial optimization problems. 
 
-🦠 Emergent Behaviors (The AI Strategies)
-Depending on the LLM's real-time reasoning, it injects one of three mathematical states into the swarm:
+<br/>
 
-SCATTER (Classical Evasion): Agents calculate the exact opposite vector of the predator and scale their velocity to sprint away.
+## 🎯 Core Mechanics
 
-DEFEND (Swarm Attack): Agents invert their threat logic, calculating an intersection vector to swarm and engulf the predator.
+| Swarm Optimization ✅ | Local Agent Reasoning 🔄 |
+| :--- | :--- |
+| *Classical PSO Algorithms* | *LLM-driven decision making* |
+| Agents dynamically re-route their network connections to find global optimums based on real-time physics parameters. | Individual agents process local environmental data to make independent routing choices. |
+| **Status:** Working | **Status:** Testing |
 
-FREEZE (Camouflage): Velocity is dynamically multiplied by a friction coefficient (0.8), rapidly halting the swarm and altering their rendering color to blend into the environment.
+<br/>
 
-🚀 Research Application: Sports Analytics Integration
-Why build this?
-This simulation acts as the foundational sandbox for my ongoing research into Optimizing Sports Referee Positioning.
+## 📊 Current Progress
 
-By establishing a working multi-agent vector environment with dynamic obstacle avoidance, the next iteration of this engine will replace the "Predator" with a "Focal Point" (the ball), and the agents with "Players". A specialized Referee Agent will then be trained using these exact vector mechanics to maintain an optimal, unobstructed line-of-sight to the ball while dynamically dodging colliding players.
+| Component | Status | Progress |
+| :--- | :--- | :--- |
+| 🚀 **Physics Engine** | ✅ Complete | ![100%](https://img.shields.io/badge/100%25-success) |
+| 🧠 **Swarm Logic** | ✅ Complete | ![100%](https://img.shields.io/badge/100%25-success) |
+| 👁️ **Visual Renderer** | ✅ Complete | ![100%](https://img.shields.io/badge/100%25-success) |
+| 🤖 **Local LLM Hooks** | 🔄 In Progress | ![60%](https://img.shields.io/badge/60%25-yellow) |
+| 🌐 **Next.js Web Demo** | ⏳ Planned | ![0%](https://img.shields.io/badge/0%25-red) |
 
-💻 How to Run Locally
-Bash
-# 1. Clone the repository
-git clone https://github.com/OsamaIM/HiveMind-Swarm.git
+<br/>
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone [https://github.com/OsamaIM/HiveMind-Swarm.git](https://github.com/OsamaIM/HiveMind-Swarm.git)
 cd HiveMind-Swarm
 
-# 2. Install dependencies
-pip install pygame requests
+# Install dependencies
+pip install -r requirements.txt
 
-# 3. Ensure your local Ollama instance is running with Phi-3
-ollama pull phi3
-
-# 4. Launch the simulation
-python swarm_ai.py
+# Run the simulation
+python main.py
