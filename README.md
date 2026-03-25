@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="HiveMind logo.jpg" alt="HiveMind" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
+<img src="HiveMind%20logo.jpg" alt="HiveMind Logo" width="250" />
 
 <h3 align="center">A Real-Time Exploration of Swarm Intelligence</h3>
 
